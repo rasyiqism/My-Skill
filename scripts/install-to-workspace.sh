@@ -15,7 +15,7 @@ RESOLVED_TARGET="$(cd "$TARGET_DIR" && pwd)"
 
 echo "=========================================================="
 echo "⚡ Installing My Skill ($SKILL_NAME) into Project Workspace"
-echo "Standard: https://agentskills.io"
+echo "Blueprint: Rasyiqi Signature Developer Standards"
 echo "Project: $RESOLVED_TARGET"
 echo "=========================================================="
 

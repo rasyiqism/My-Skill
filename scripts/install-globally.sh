@@ -6,7 +6,7 @@ SKILL_NAME="my-skill"
 
 echo "=========================================================="
 echo "⚡ Installing My Skill ($SKILL_NAME) Globally"
-echo "Standard: https://agentskills.io"
+echo "Blueprint: Rasyiqi Signature Developer Standards"
 echo "Source: $SOURCE_DIR"
 echo "=========================================================="
 

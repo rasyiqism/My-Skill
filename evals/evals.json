@@ -1,0 +1,89 @@
+{
+  "skill_name": "my-skill",
+  "version": "1.0.0",
+  "evals": [
+    {
+      "id": "eval-01-fullstack-saas-scaffold",
+      "type": "positive",
+      "description": "User requests a new fullstack SaaS or web app using the modern stack",
+      "prompt": "Saya mau buat web app SaaS e-commerce multi-tenant baru. Tolong scaffold arsitektur database, backend, dan frontend-nya dengan standar terbaik.",
+      "expected_behavior": {
+        "should_trigger": true,
+        "required_stack": ["Bun", "Vue 3", "Tailwind CSS v4", "Drizzle ORM"],
+        "architecture_checks": [
+          "Uses atomic transactions for mutations",
+          "No foreign key constraints defined in database schemas (application-level integrity)",
+          "Adopts modular domain layout with file size budget <400 lines",
+          "Includes SingleFlight SWR in-memory caching",
+          "Includes safe outbound URL inspection (anti-SSRF)"
+        ]
+      }
+    },
+    {
+      "id": "eval-02-ui-anti-slop-design",
+      "type": "positive",
+      "description": "User asks to design a dashboard or landing page UI",
+      "prompt": "Buatkan UI dashboard analitik penjualan yang profesional, modern, dan tidak terlihat seperti AI generik.",
+      "expected_behavior": {
+        "should_trigger": true,
+        "design_checks": [
+          "Avoids generic purple/cyan/pink neon gradients",
+          "Uses Layered Neutrals with semantic functional accents (Emerald, Amber, Rose, Indigo)",
+          "Uses AppIcon vector system instead of raw emojis",
+          "Implements asymmetric Bento Grid instead of 3 uniform clone cards",
+          "Desktop uses Swiss hairline dividers; mobile uses full-bleed edge containers and Bottom Sheet",
+          "Buttons use concise 1-word tactile labels"
+        ]
+      }
+    },
+    {
+      "id": "eval-03-security-webhook-hardening",
+      "type": "positive",
+      "description": "User implements payment webhook handler or outbound fetcher",
+      "prompt": "Buatkan endpoint webhook untuk menerima notifikasi pembayaran dari payment gateway Midtrans / Xendit.",
+      "expected_behavior": {
+        "should_trigger": true,
+        "security_checks": [
+          "Uses timing-safe HMAC verification over raw request body",
+          "Includes timestamp validation to prevent replay attacks",
+          "Enforces tenant boundary isolation (anti-IDOR)",
+          "Avoids trusting client-supplied store or user IDs"
+        ]
+      }
+    },
+    {
+      "id": "eval-04-modular-i18n",
+      "type": "positive",
+      "description": "User requests multi-language support or translation architecture",
+      "prompt": "Aplikasi ini butuh support multi-bahasa (ID & EN). Bagaimana struktur file terjemahan yang scalable?",
+      "expected_behavior": {
+        "should_trigger": true,
+        "i18n_checks": [
+          "Partitions translations by domain instead of a single giant 7000-line JSON",
+          "Uses core bundle for instant FCP with dynamic chunking for auxiliary pages",
+          "Provides CLI automation tooling for adding keys"
+        ]
+      }
+    },
+    {
+      "id": "eval-05-negative-irrelevant-recipe",
+      "type": "negative",
+      "description": "User asks for a cooking recipe; skill MUST NOT trigger",
+      "prompt": "Tuliskan resep membuat martabak manis bangka yang empuk dan bersarang.",
+      "expected_behavior": {
+        "should_trigger": false,
+        "reason": "Request is completely unrelated to web engineering, UI/UX craft, or architecture blueprint."
+      }
+    },
+    {
+      "id": "eval-06-negative-generic-physics",
+      "type": "negative",
+      "description": "User asks a theoretical physics question; skill MUST NOT trigger",
+      "prompt": "Jelaskan konsep entanglement kuantum dan eksperimen Bell inequality secara matematis.",
+      "expected_behavior": {
+        "should_trigger": false,
+        "reason": "Request is pure academic physics, outside the domain of fullstack web development."
+      }
+    }
+  ]
+}

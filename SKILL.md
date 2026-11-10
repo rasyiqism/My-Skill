@@ -84,10 +84,10 @@ This skill is designed with progressive disclosure. For deep-dive specifications
 - **Strict Blacklist Operasional**:
   - ❌ **No Bare Emojis in UI**: Wajib sistem vektor SVG seragam [`<AppIcon>`](./assets/AppIcon.vue).
   - ❌ **No Low-Contrast / Dead Text**: Dilarang teks abu-abu di atas latar abu-abu (`text-neutral-400` di atas `bg-neutral-100`). Rasio kontras wajib WCAG AA (min 4.5:1). Dark mode wajib neutral layers (`neutral-950`/`900`/`800`).
-  - ❌ **No Broken Mobile UX**: Modal desktop wajib beralih menjadi *bottom-sheet drawer* di HP (`max-sm:fixed max-sm:bottom-0 max-sm:rounded-t-2xl`). Tap target minimal $44 \times 44$ px ($48 \times 48$ dp di Android). Dilarang memaksakan pola desktop (popup dialog tengah layar, hover tooltips, pagination angka sempit) ke perangkat sentuh.
+  - ❌ **No Broken Mobile UX**: Modal desktop wajib beralih menjadi *bottom-sheet drawer* di HP (`max-sm:fixed max-sm:bottom-0 max-sm:rounded-t-2xl`, lihat [`BottomSheet.vue`](./assets/BottomSheet.vue)). Tap target minimal $44 \times 44$ px ($48 \times 48$ dp di Android). Dilarang memaksakan pola desktop (popup dialog tengah layar, hover tooltips, pagination angka sempit) ke perangkat sentuh.
   - ❌ **No Container Inception & Padding Compounding**: Dilarang kotak di dalam kotak berlebihan (maksimal 2 kedalaman: Canvas $\to$ Card Utama $\to$ Well/Input). Radius sudut wajib konsentris ($R_{\text{inner}} = \max(0, R_{\text{outer}} - \text{padding})$). Spasi kelipatan 4px/8px.
   - ❌ **No Verbose Copy & Bloated Buttons ("Kalau Mau Nulis Artikel Bukan Disini")**: Judul halaman 1–2 kata; dilarang paragraf panjang di header. Tombol jika bisa 1 kata WAJIB 1 kata ("Simpan", "Tambah", "Hapus", "Salin", "Ekspor", "Filter", "Bayar"). Aksi tabel wajib berupa ikon mandiri (`<AppIcon>`).
-  - ❌ **No Patronizing UX ("Jangan Anggap User Bodoh")**: Asumsikan pengguna kompeten & cerdas. Dilarang tur unskippable 5 langkah; dilarang dialog konfirmasi bawel untuk aksi reversibel (wajib eksekusi instan + Undo toast); dilarang teks "Captain Obvious" yang mengulang label; dilarang empty state kartun merengek. Jangan pernah blokir paste password manager. Wajib dukung shortcut keyboard (`Esc`, `Cmd+S`, `Enter`).
+  - ❌ **No Patronizing UX ("Jangan Anggap User Bodoh")**: Asumsikan pengguna kompeten & cerdas. Dilarang tur unskippable 5 langkah; dilarang dialog konfirmasi bawel untuk aksi reversibel (wajib eksekusi instan + Undo toast via [`useToast.ts`](./assets/useToast.ts) dan [`AppToast.vue`](./assets/AppToast.vue)); dilarang teks "Captain Obvious" yang mengulang label; dilarang empty state kartun merengek. Jangan pernah blokir paste password manager. Wajib dukung shortcut keyboard (`Esc`, `Cmd+S`, `Enter`).
   - ❌ **No Jargon Inflation ("Don't Tell, But Show")**: Panggil fitur apa adanya dengan bahasa membumi (misal "Filter", "Unggah", "Ekspor CSV"). Sembunyikan penjelasan teknis di balik Tooltip halus (`<AppIcon name="help-circle" />`). Di UI dan dokumentasi, wajib terapkan **Don't tell, but show** (sertakan contoh kode / live preview).
   - ❌ **No Hardcoded Strings**: Dilarang hardcode teks tampilan di komponen tanpa lokalisasi `$t(...)`.
 - **The Taste Standard**:
@@ -104,7 +104,7 @@ This skill is designed with progressive disclosure. For deep-dive specifications
 - **Anti-SSRF (`safeOutboundUrl`)**: Any user-supplied URL (webhooks, logos, feeds) MUST be validated against DNS rebinding and blocked from hitting private/loopback/cloud metadata IPs (`127.0.0.1`, `10.0.0.0/8`, `169.254.169.254`, etc.).
 - **Anti-IDOR Multi-Tenancy**: Every database query accessing tenant data must explicitly join or filter by `store_id` or `user_id` authenticated from the session, never trusting request parameters.
 - **Role Isolation**: Guest and buyer access tokens (e.g., Customer Hub) must never be able to execute store-owner or superadmin mutations, even if shared DB tables exist.
-- **Cryptographic Webhooks**: Webhooks must be verified using raw request body HMAC signatures, paired with idempotency deduplication to prevent replay attacks.
+- **Cryptographic Webhooks**: Webhooks must be verified using raw request body HMAC signatures paired with idempotency and timestamp replay defense (see [`verifyWebhookHmac.ts`](./assets/verifyWebhookHmac.ts)).
 
 ### Pillar IV: Perfectionist Performance, Lighthouse 100 & Lightweight Resource Hygiene
 - **Lighthouse 100 Target**: Wajib menargetkan skor sempurna di seluruh audit (Performance $\ge 98$, Accessibility 100, Best Practices 100, SEO 100).
@@ -123,11 +123,16 @@ This skill is designed with progressive disclosure. For deep-dive specifications
 ## 3. How to Apply this Skill in a New Project
 
 When starting a new repository or feature:
-1. **Initialize Stack**: Scaffold with Bun, Vue 3, Vite, Tailwind CSS v4, and Drizzle ORM.
-2. **Install Common Primitives**:
-   - Copy [`AppIcon.vue`](./assets/AppIcon.vue) to `src/client/components/common/AppIcon.vue`.
+1. **Automated Scaffolding (Recommended)**:
+   Run the project scaffolder to set up directories and copy standard primitives:
+   ```bash
+   ./scripts/init-project.sh /path/to/new-project
+   ```
+2. **Manual Installation of Common Primitives**:
+   - Copy [`AppIcon.vue`](./assets/AppIcon.vue), [`BottomSheet.vue`](./assets/BottomSheet.vue), and [`AppToast.vue`](./assets/AppToast.vue) to `src/client/components/common/`.
+   - Copy [`useToast.ts`](./assets/useToast.ts) to `src/client/composables/useToast.ts`.
    - Copy [`inMemoryCache.ts`](./assets/inMemoryCache.ts) to `src/server/core/cache/inMemoryCache.ts`.
-   - Copy [`safeOutboundUrl.ts`](./assets/safeOutboundUrl.ts) to `src/server/core/utils/safeOutboundUrl.ts`.
+   - Copy [`safeOutboundUrl.ts`](./assets/safeOutboundUrl.ts) and [`verifyWebhookHmac.ts`](./assets/verifyWebhookHmac.ts) to `src/server/core/utils/`.
    - Setup modular locales using [`split-locales.ts`](./assets/split-locales.ts) and [`i18n-add.ts`](./assets/i18n-add.ts).
 3. **Execute Pre-Commit Verification**: Chain typecheck, locale compile, and build into `package.json` scripts:
    ```json

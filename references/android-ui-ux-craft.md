@@ -65,6 +65,8 @@ graph TD
 ```
 
 ### A. Drawer & Modal Bottom Sheet (Bukan Pop-Up Dialog Tengah Layar)
+*(Lihat implementasi referensi Vue 3 pada [`BottomSheet.vue`](../assets/BottomSheet.vue))*
+
 1. **Pill Handle Indicator**:
    - Setiap bottom sheet wajib memiliki indikator pegangan (*drag handle*) di bagian atas tengah (`w-10 h-1 rounded-full bg-neutral-300 dark:bg-neutral-700 mx-auto mt-2 mb-3`) sebagai petunjuk visual (*visual affordance*) bahwa panel dapat ditarik atau disapu.
 2. **Snap Points & Physics**:

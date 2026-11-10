@@ -66,6 +66,8 @@ Payment gateways and third-party webhooks must be verified cryptographically:
 2. **Timing-Safe Comparison**: Use `crypto.timingSafeEqual` or `Bun.CryptoHasher` to compare signatures, preventing timing side-channel attacks.
 3. **Nonce / Timestamp Validation**: Reject webhook requests where the timestamp is older than 5 minutes to defend against replay attacks.
 
+See [verifyWebhookHmac.ts](../assets/verifyWebhookHmac.ts) for the reference implementation.
+
 ---
 
 ## 5. Input Sanitization & Anti-XSS

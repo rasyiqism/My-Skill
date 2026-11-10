@@ -97,7 +97,7 @@ AI coding agents sering kali menghasilkan antarmuka yang technically rapi tetapi
   - Memblokir paste pada input kata sandi (merusak password manager).
 - **Standar yang Disukai**:
   - **Asumsikan Pengguna Cerdas**: Biarkan pengguna langsung bekerja.
-  - **Undo > Dialog Konfirmasi**: Eksekusi instan + toast ringan `[Urungkan]`. Konfirmasi pop-up HANYA untuk aksi destruktif permanen.
+  - **Undo > Dialog Konfirmasi**: Eksekusi instan + toast ringan `[Urungkan]` (lihat implementasi [`useToast.ts`](../assets/useToast.ts) dan [`AppToast.vue`](../assets/AppToast.vue)). Konfirmasi pop-up HANYA untuk aksi destruktif permanen.
   - **Komunikasi Dewasa**: Nada bicara profesional, tenang, dan solutif.
   - **Keyboard First**: Dukung shortcut (`Esc`, `Cmd+S`, `Enter`). Jangan pernah blokir paste.
 
