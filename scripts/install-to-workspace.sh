@@ -11,10 +11,10 @@ if [ ! -d "$TARGET_DIR" ]; then
 fi
 
 DEST_SKILLS_DIR="$(cd "$TARGET_DIR" && pwd)/.agents/skills"
-TARGET_LINK="$DEST_SKILLS_DIR/rasyiqi-skill"
+TARGET_LINK="$DEST_SKILLS_DIR/my-skill"
 
 echo "=========================================================="
-echo "Installing Rasyiqi-Skill into project workspace..."
+echo "Installing My Skill into project workspace..."
 echo "Project: $TARGET_DIR"
 echo "Skills Destination: $TARGET_LINK"
 echo "=========================================================="
@@ -28,5 +28,5 @@ fi
 
 ln -s "$SOURCE_DIR" "$TARGET_LINK"
 
-echo "✓ Successfully linked Rasyiqi-Skill into $TARGET_LINK"
-echo "The project's AI agent now has full access to the Rasyiqi engineering skill."
+echo "✓ Successfully linked My Skill into $TARGET_LINK"
+echo "The project's AI agent now has full access to the My Skill engineering blueprint."

@@ -2,7 +2,7 @@
 
 > **"Saya itu perfeksionis: Aplikasi tidak hanya harus indah dan aman, tetapi wajib super ringan, hemat CPU & RAM, meraih skor Lighthouse 100, dan mematuhi standar SEO & browser modern."**
 
-Dokumen ini mendefinisikan standar rekayasa tingkat tinggi untuk memastikan setiap proyek web yang dibangun di bawah **Rasyiqi-Skill** mencapai efisiensi sumber daya maksimal dan performa tanpa kompromi.
+Dokumen ini mendefinisikan standar rekayasa tingkat tinggi untuk memastikan setiap proyek web yang dibangun di bawah **My Skill** mencapai efisiensi sumber daya maksimal dan performa tanpa kompromi.
 
 ---
 

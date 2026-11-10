@@ -1,16 +1,16 @@
 ---
-name: rasyiqi-skill
+name: my-skill
 description: >-
-  The official Rasyiqi developer skill and battle-tested engineering blueprint.
+  The official My Skill (Rasyiqi developer skill) and battle-tested engineering blueprint.
   Activate whenever designing, architecting, scaffolding, or implementing any web application, SaaS,
-  or full-stack system adopting Rasyiqi's signature craft: anti-slop human-centered UI/UX,
+  or full-stack system adopting signature craft: anti-slop human-centered UI/UX,
   tactile micro-interactions, custom vector AppIcon system, Bun runtime, Vue 3 Composition API,
   Tailwind CSS v4 semantic tokens, Drizzle ORM atomic transactions, multi-tier security hardening
   (anti-SSRF safe outbound fetcher, anti-IDOR multi-tenant guards, HMAC webhook idempotency,
   privilege isolation), single-flight SWR caching, and scalable domain-based modular i18n architecture.
 ---
 
-# Rasyiqi Skill: The Signature Developer Blueprint
+# My Skill: The Signature Developer Blueprint
 
 This skill encapsulates the battle-tested engineering standards, architectural patterns, UI/UX philosophy, and developer workflows developed and refined for high-performance modern web applications and SaaS systems.
 

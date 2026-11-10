@@ -1,4 +1,4 @@
-# ⚡ Rasyiqi Skill (`rasyiqi-skill`)
+# ⚡ My Skill (`my-skill`)
 
 Repositori ini berisi kustom skill untuk **Google Antigravity** dan kumpulan cetak biru arsitektur (*engineering blueprint*) perangkat lunak yang dirancang oleh Rasyiqi.
 
@@ -79,7 +79,7 @@ Jalankan skrip berikut untuk menautkan repositori ini ke konfigurasi global Anti
 chmod +x ./scripts/*.sh
 ./scripts/install-globally.sh
 ```
-*Skill akan langsung terdaftar di `~/.gemini/config/skills/rasyiqi-skill` dan otomatis terdeteksi di setiap workspace.*
+*Skill akan langsung terdaftar di `~/.gemini/config/skills/my-skill` dan otomatis terdeteksi di setiap workspace.*
 
 ### 3. Pasang Khusus ke Satu Proyek Tertentu
 Jika ingin menautkan skill ke dalam workspace proyek tertentu saja:
@@ -89,7 +89,7 @@ Jika ingin menautkan skill ke dalam workspace proyek tertentu saja:
 
 ### 4. Menjalankan Melalui Agen AI
 Pada percakapan dengan Antigravity di proyek Anda, berikan instruksi:
-- *"Gunakan standar rasyiqi-skill untuk membangun modul ini."*
-- *"Refactor halaman ini mengikuti aturan UI/UX dan arsitektur pada rasyiqi-skill."*
+- *"Gunakan standar my-skill untuk membangun modul ini."*
+- *"Refactor halaman ini mengikuti aturan UI/UX dan arsitektur pada my-skill."*
 
 Agen akan secara otomatis membaca `SKILL.md` serta dokumen pendukung di `references/` untuk menerapkan standar kode yang sesuai.

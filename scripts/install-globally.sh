@@ -3,10 +3,10 @@ set -e
 
 SOURCE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GLOBAL_SKILLS_DIR="$HOME/.gemini/config/skills"
-TARGET_LINK="$GLOBAL_SKILLS_DIR/rasyiqi-skill"
+TARGET_LINK="$GLOBAL_SKILLS_DIR/my-skill"
 
 echo "=========================================================="
-echo "Installing Rasyiqi-Skill globally into Antigravity..."
+echo "Installing My Skill globally into Antigravity..."
 echo "Source: $SOURCE_DIR"
 echo "Target: $TARGET_LINK"
 echo "=========================================================="
@@ -20,5 +20,5 @@ fi
 
 ln -s "$SOURCE_DIR" "$TARGET_LINK"
 
-echo "✓ Successfully symlinked Rasyiqi-Skill globally!"
-echo "Antigravity will now automatically detect 'rasyiqi-skill' in any workspace."
+echo "✓ Successfully symlinked My Skill globally!"
+echo "Antigravity will now automatically detect 'my-skill' in any workspace."
