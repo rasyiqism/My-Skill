@@ -1,13 +1,18 @@
 ---
 name: my-skill
 description: >-
-  The official My Skill (Rasyiqi developer skill) and battle-tested engineering blueprint.
-  Activate whenever designing, architecting, scaffolding, or implementing any web application, SaaS,
-  or full-stack system adopting signature craft: anti-slop human-centered UI/UX,
+  Battle-tested full-stack engineering blueprint and developer standards for modern web applications and SaaS.
+  Use when designing, building, scaffolding, or refactoring full-stack applications requiring anti-slop UI/UX,
   tactile micro-interactions, custom vector AppIcon system, Bun runtime, Vue 3 Composition API,
-  Tailwind CSS v4 semantic tokens, Drizzle ORM atomic transactions, multi-tier security hardening
-  (anti-SSRF safe outbound fetcher, anti-IDOR multi-tenant guards, HMAC webhook idempotency,
-  privilege isolation), single-flight SWR caching, and scalable domain-based modular i18n architecture.
+  Tailwind CSS v4 semantic tokens, Drizzle ORM atomic transactions, multi-tier security (anti-SSRF outbound fetcher,
+  anti-IDOR multi-tenant guards, HMAC webhook idempotency), SingleFlight SWR caching, and modular i18n architecture.
+license: MIT
+compatibility: Universal. Compatible with all AI agents supporting the agentskills.io standard (Antigravity, Claude Code, Cursor, OpenAI Codex, GitHub Copilot, Roo Code, Cline, Windsurf).
+metadata:
+  author: rasyiqi
+  version: "1.0.0"
+  specification: "https://agentskills.io"
+  repository: "https://github.com/rasyiqi-code/My-Skill"
 ---
 
 # My Skill: The Signature Developer Blueprint
@@ -74,10 +79,10 @@ This skill is designed with progressive disclosure. For deep-dive specifications
   1. ❌ **Palet Warna Pasaran (Gradasi Ungu, Biru Elektrik, Pink Neon)**: Dilarang memakai gradasi neon cyber/AI murahan. Wajib gunakan *Layered Neutrals* yang tenang dengan aksen semantik terarah (Emerald, Amber, Rose, Indigo).
   2. ❌ **Tipografi Monoton & Kaku**: Dilarang hirarki tipografi datar. Wajib kontras ritme yang tajam (*bold tracking-tight* untuk judul) dan `font-mono tracking-wider` untuk data angka rupiah, invoice, dan kode.
   3. ❌ **Layout Card-in-Card Monoton & Hero Klise**: Dilarang formula klise (badge atas $\to$ H1 kiri $\to$ mockup 3D melayang kanan) dan 3 kotak simetris identik yang diulang-ulang. Wajib gunakan **Bento Grid Asimetris**, variasi ukuran kartu sesuai bobot informasi, dan hero kontekstual.
-  4. ❌ **Antarmuka Dingin & Tanpa Jiwa (Steril)**: Tampilan tidak boleh kaku seperti robot. Wajib berjiwa dengan sentuhan mikro-interaksi taktil (`hover:scale-[1.02] active:scale-[0.98]`), transisi halus, dan sistem ikon vektor [`<AppIcon>`](./templates/AppIcon.vue) (bukan emoji mentah).
+  4. ❌ **Antarmuka Dingin & Tanpa Jiwa (Steril)**: Tampilan tidak boleh kaku seperti robot. Wajib berjiwa dengan sentuhan mikro-interaksi taktil (`hover:scale-[1.02] active:scale-[0.98]`), transisi halus, dan sistem ikon vektor [`<AppIcon>`](./assets/AppIcon.vue) (bukan emoji mentah).
   5. ❌ **Logika UX Dangkal (Abaikan Edge Case)**: Dilarang hanya mendesain *happy path*. Wajib tangani kondisi nyata: nama teks sangat panjang (`truncate`/`line-clamp`), data kosong 0 item (empty state bermartabat), skeleton loader sesuai aspek rasio (anti-CLS), dan error state teknis yang solutif.
 - **Strict Blacklist Operasional**:
-  - ❌ **No Bare Emojis in UI**: Wajib sistem vektor SVG seragam [`<AppIcon>`](./templates/AppIcon.vue).
+  - ❌ **No Bare Emojis in UI**: Wajib sistem vektor SVG seragam [`<AppIcon>`](./assets/AppIcon.vue).
   - ❌ **No Low-Contrast / Dead Text**: Dilarang teks abu-abu di atas latar abu-abu (`text-neutral-400` di atas `bg-neutral-100`). Rasio kontras wajib WCAG AA (min 4.5:1). Dark mode wajib neutral layers (`neutral-950`/`900`/`800`).
   - ❌ **No Broken Mobile UX**: Modal desktop wajib beralih menjadi *bottom-sheet drawer* di HP (`max-sm:fixed max-sm:bottom-0 max-sm:rounded-t-2xl`). Tap target minimal $44 \times 44$ px ($48 \times 48$ dp di Android). Dilarang memaksakan pola desktop (popup dialog tengah layar, hover tooltips, pagination angka sempit) ke perangkat sentuh.
   - ❌ **No Container Inception & Padding Compounding**: Dilarang kotak di dalam kotak berlebihan (maksimal 2 kedalaman: Canvas $\to$ Card Utama $\to$ Well/Input). Radius sudut wajib konsentris ($R_{\text{inner}} = \max(0, R_{\text{outer}} - \text{padding})$). Spasi kelipatan 4px/8px.
@@ -120,10 +125,10 @@ This skill is designed with progressive disclosure. For deep-dive specifications
 When starting a new repository or feature:
 1. **Initialize Stack**: Scaffold with Bun, Vue 3, Vite, Tailwind CSS v4, and Drizzle ORM.
 2. **Install Common Primitives**:
-   - Copy [`AppIcon.vue`](./templates/AppIcon.vue) to `src/client/components/common/AppIcon.vue`.
-   - Copy [`inMemoryCache.ts`](./templates/inMemoryCache.ts) to `src/server/core/cache/inMemoryCache.ts`.
-   - Copy [`safeOutboundUrl.ts`](./templates/safeOutboundUrl.ts) to `src/server/core/utils/safeOutboundUrl.ts`.
-   - Setup modular locales using [`split-locales.ts`](./templates/split-locales.ts) and [`i18n-add.ts`](./templates/i18n-add.ts).
+   - Copy [`AppIcon.vue`](./assets/AppIcon.vue) to `src/client/components/common/AppIcon.vue`.
+   - Copy [`inMemoryCache.ts`](./assets/inMemoryCache.ts) to `src/server/core/cache/inMemoryCache.ts`.
+   - Copy [`safeOutboundUrl.ts`](./assets/safeOutboundUrl.ts) to `src/server/core/utils/safeOutboundUrl.ts`.
+   - Setup modular locales using [`split-locales.ts`](./assets/split-locales.ts) and [`i18n-add.ts`](./assets/i18n-add.ts).
 3. **Execute Pre-Commit Verification**: Chain typecheck, locale compile, and build into `package.json` scripts:
    ```json
    "build": "bun run locales:build && vite build",

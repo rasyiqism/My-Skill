@@ -18,7 +18,7 @@ Before making **any** outbound HTTP call using a user-controlled URL, you **MUST
 - Non-HTTP(S) schemes (`file://`, `gopher://`, `ftp://`).
 - Domain names that resolve (via DNS lookup) to any of the above IP ranges.
 
-See [safeOutboundUrl.ts](../templates/safeOutboundUrl.ts) for the reference implementation.
+See [safeOutboundUrl.ts](../assets/safeOutboundUrl.ts) for the reference implementation.
 
 ---
 

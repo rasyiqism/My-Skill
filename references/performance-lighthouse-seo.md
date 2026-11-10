@@ -108,7 +108,7 @@ Sertakan rich schema untuk membantu Googlebot mengindeks data:
 - **Haram Mengimpor Pustaka Raksasa**:
   - ❌ Dilarang `moment.js` (65KB) $\to$ ✅ Gunakan native `Intl.DateTimeFormat` atau Day.js ringan jika butuh helper.
   - ❌ Dilarang `lodash` (70KB) $\to$ ✅ Gunakan JavaScript ES2024 native (`structuredClone`, `Array.prototype.findLast`, `Object.groupBy`).
-  - ❌ Dilarang library ikon raksasa 2MB $\to$ ✅ Gunakan komponen SVG mandiri [`<AppIcon>`](../templates/AppIcon.vue).
+  - ❌ Dilarang library ikon raksasa 2MB $\to$ ✅ Gunakan komponen SVG mandiri [`<AppIcon>`](../assets/AppIcon.vue).
 
 ---
 

@@ -1,95 +1,136 @@
 # ⚡ My Skill (`my-skill`)
 
-Repositori ini berisi kustom skill untuk **Google Antigravity** dan kumpulan cetak biru arsitektur (*engineering blueprint*) perangkat lunak yang dirancang oleh Rasyiqi.
+[![Agent Skills Standard](https://img.shields.io/badge/Standard-agentskills.io-blue.svg)](https://agentskills.io)
+[![Runtime](https://img.shields.io/badge/Runtime-Bun-f472b6.svg)](https://bun.sh)
+[![Frontend](https://img.shields.io/badge/Frontend-Vue%203%20%7C%20Tailwind%20v4-42b883.svg)](https://vuejs.org)
+[![Database](https://img.shields.io/badge/ORM-Drizzle-c084fc.svg)](https://orm.drizzle.team)
+[![Multi-Agent](https://img.shields.io/badge/Compatibility-Universal%20Agents-emerald.svg)](https://agentskills.io)
+[![License](https://img.shields.io/badge/License-MIT-gray.svg)](LICENSE)
 
-Skill ini berfungsi sebagai panduan standar dan *second brain* bagi agen AI saat merancang, membangun, dan menyempurnakan aplikasi web maupun sistem full-stack agar langsung menghasilkan kode yang modular, efisien, aman, dan berstandar produksi.
+Kustom skill dan cetak biru rekayasa (*engineering blueprint*) perangkat lunak berstandar terbuka [**Agent Skills (`agentskills.io`)**](https://agentskills.io). Dirancang untuk digunakan secara universal oleh berbagai AI coding agent—termasuk **Google Antigravity**, **Claude Code**, **Cursor**, **OpenAI Codex**, **GitHub Copilot**, **Cline**, dan **Roo Code**.
 
----
-
-## 🎯 Fokus & Tujuan Repositori
-
-Repositori ini bukan buku teks panjang, melainkan paket keahlian terstruktur yang menyediakan:
-
-1. **Manifest AI Agent (`SKILL.md`)**: Instruksi inti yang dibaca langsung oleh Antigravity untuk mengenali aturan desain, arsitektur, dan keamanan.
-2. **Panduan Teknis Terarah (`references/`)**: Dokumentasi mendalam yang dipisah per domain agar agen hanya membaca referensi yang dibutuhkan saat tugas tertentu dijalankan.
-3. **Template Kode Siap Pakai (`templates/`)**: Modul boilerplate konkret (komponen ikon, token CSS, cache in-memory, validator anti-SSRF, dan skema database).
-4. **Skrip Instalasi Cepat (`scripts/`)**: Otomasi pemasangan skill secara global maupun per workspace proyek.
+Skill ini membakukan DNA rekayasa sistem produksi, filosofi anti-slop UI/UX, arsitektur modular, dan prinsip zero-trust security ke dalam paket terstruktur yang hemat token melalui mekanisme *progressive disclosure*.
 
 ---
 
-## 📁 Struktur Repositori
+## 🌐 Kompatibilitas Multi-Agent
+
+Skill ini mematuhi spesifikasi terbuka Linux Foundation (AAIF) pada `agentskills.io`, sehingga dapat langsung dikenali di berbagai platform:
+
+| AI Agent / Tool | Lokasi Global | Lokasi Proyek Workspace |
+|---|---|---|
+| **Universal (AAIF / Spec)** | `~/.agents/skills/my-skill` | `.agents/skills/my-skill` |
+| **Google Antigravity / Gemini** | `~/.gemini/config/skills/my-skill` | `.agents/skills/my-skill` atau `.gemini/skills/` |
+| **Claude Code (Anthropic)** | `~/.claude/skills/my-skill` | `.claude/skills/my-skill` atau `.agents/skills/` |
+| **Cursor AI** | `~/.cursor/skills/my-skill` | `.cursor/skills/my-skill` atau `.agents/skills/` |
+| **OpenAI Codex CLI** | `~/.codex/skills/my-skill` | `.codex/skills/my-skill` atau `.agents/skills/` |
+| **GitHub Copilot / Cline / Roo** | Standard environment | `.agents/skills/my-skill` |
+
+---
+
+## 📁 Struktur Standar Repositori (`agentskills.io`)
+
+Repositori ini mengikuti struktur 4-bagian yang direkomendasikan spesifikasi Agent Skills:
 
 ```text
-.
-├── SKILL.md                         # Manifest utama skill untuk agen Antigravity
-├── README.md                        # Penjelasan repositori dan panduan penggunaan
+my-skill/
+├── SKILL.md                         # Wajib: Frontmatter YAML + instruksi master skill
+├── README.md                        # Dokumentasi repositori & panduan lintas-agent
 │
-├── references/                      # Panduan teknis mendalam per topik
-│   ├── design-system.md             # Token CSS semantik, sistem radius, dan komponen dasar
-│   ├── ui-ux-craft.md               # Standar visual, tipografi, dan mikro-interaksi
-│   ├── android-ui-ux-craft.md       # Ergonomi sentuh mobile, drawer sheet, dan optimasi memori
-│   ├── architecture-patterns.md     # Modul domain, cache SWR, integritas data, dan struktur file
-│   ├── stack-tooling.md             # Pilihan stack efisien (Bun, Vue 3, Tailwind v4, Drizzle)
-│   ├── security-compliance.md       # Proteksi anti-SSRF, anti-IDOR, dan verifikasi webhook
-│   ├── modular-i18n.md              # Partisi kamus multibahasa dan tooling CLI
-│   └── performance-lighthouse-seo.md# Core Web Vitals, skor Lighthouse 100, dan higienitas CPU/RAM
+├── references/                      # Opsional: Pengetahuan domain teknis mendalam (on-demand)
+│   ├── design-system.md             # Token CSS semantik, radius konsentris, spacing grid
+│   ├── ui-ux-craft.md               # Standar visual, tipografi tajam, anti-slop, micro-interactions
+│   ├── android-ui-ux-craft.md       # Ergonomi jempol mobile, bottom-sheet, edge-to-edge, LMK
+│   ├── architecture-patterns.md     # Domain modularity, SWR cache, no-FK, transaksi ACID
+│   ├── stack-tooling.md             # Golden tier stack (Bun, Vue 3, Tailwind v4, Drizzle)
+│   ├── security-compliance.md       # Safe outbound fetcher (anti-SSRF), anti-IDOR, HMAC
+│   ├── modular-i18n.md              # Partisi kamus per domain, FCP-first chunking, CLI
+│   └── performance-lighthouse-seo.md# Core Web Vitals (LCP < 1.2s, CLS 0), skor Lighthouse 100
 │
-├── templates/                       # Boilerplate & helper siap pakai
-│   ├── AppIcon.vue                  # Komponen ikon vektor SVG terpadu
+├── assets/                          # Opsional: Boilerplate, template kode & komponen siap pakai
+│   ├── AppIcon.vue                  # Komponen ikon vektor SVG terpadu (anti-emoji di UI)
 │   ├── design-system.css            # Variabel token tema Tailwind CSS v4
-│   ├── inMemoryCache.ts             # Cache SingleFlight SWR anti-stampede
-│   ├── safeOutboundUrl.ts           # Validator URL & IP anti-SSRF
-│   ├── split-locales.ts             # Script partisi kamus bahasa
-│   ├── i18n-add.ts                  # CLI helper penambah string lokalisasi
-│   └── db-schema-starter.ts         # Starter schema & transaksi Drizzle ORM
+│   ├── inMemoryCache.ts             # Cache SingleFlight SWR anti-cache-stampede
+│   ├── safeOutboundUrl.ts           # Validator URL & inspeksi DNS anti-SSRF
+│   ├── split-locales.ts             # Compiler otomatis i18n modular
+│   ├── i18n-add.ts                  # CLI helper penambah kunci terjemahan
+│   └── db-schema-starter.ts         # Pola skema & transaksi Drizzle ORM tanpa foreign key
 │
-└── scripts/                         # Otomasi instalasi
-    ├── install-globally.sh          # Menautkan skill ke ~/.gemini/config/skills/
-    └── install-to-workspace.sh      # Menautkan skill ke .agents/skills/ pada proyek tertentu
+└── scripts/                         # Opsional: Skrip otomasi & instalasi universal
+    ├── install-globally.sh          # Pasang global ke seluruh agent yang terpasang
+    └── install-to-workspace.sh      # Pasang ke workspace proyek (.agents/skills/ + link agent)
 ```
 
 ---
 
-## 🧭 Ringkasan 6 Pilar Utama
+## 🧭 Ringkasan 6 Pilar Rekayasa
 
-Materi mendalam tersimpan rapi dalam folder `references/`:
+Agen AI hanya akan memuat dokumen di `references/` saat tugas relevan sedang dikerjakan (*progressive disclosure*):
 
-| Pilar | Topik Utama | Rujukan Dokumen |
+| Pilar | Fokus Rekayasa | Dokumen Rujukan |
 |---|---|---|
-| **UI/UX & Desain** | Layered neutrals, bento grid, mobile bottom-sheet, desktop hairline grid | [ui-ux-craft.md](references/ui-ux-craft.md), [design-system.md](references/design-system.md) |
-| **Mobile Native** | Ergonomi jempol 60%, gesture drag, edge-to-edge bleed, proteksi low memory | [android-ui-ux-craft.md](references/android-ui-ux-craft.md) |
-| **Arsitektur Sistem** | Domain-driven modularity, batas file <400 baris, transaksi ACID atomik | [architecture-patterns.md](references/architecture-patterns.md) |
-| **Stack & Tooling** | Bun runtime, Vue 3 Composition API, Tailwind v4, Drizzle ORM hemat RAM VPS | [stack-tooling.md](references/stack-tooling.md) |
-| **Keamanan** | Filter outbound safe fetcher (anti-SSRF), isolasi tenant (anti-IDOR), raw HMAC | [security-compliance.md](references/security-compliance.md) |
-| **Performa & i18n** | Target Lighthouse 100, Core Web Vitals (LCP < 1.2s, CLS 0), kamus modular per domain | [performance-lighthouse-seo.md](references/performance-lighthouse-seo.md), [modular-i18n.md](references/modular-i18n.md) |
+| **🎨 UI/UX & Design System** | Anti-slop, layered neutrals, bento grid, mobile bottom-sheet, desktop hairline grid | [ui-ux-craft.md](references/ui-ux-craft.md), [design-system.md](references/design-system.md) |
+| **📱 Native Mobile Craft** | Ergonomi sentuh 60% bawah layar, gestur drawer/swipe, full bleed status bar, proteksi RAM <80MB | [android-ui-ux-craft.md](references/android-ui-ux-craft.md) |
+| **🏗️ Arsitektur Sistem** | Domain-driven modularity, batas file <400 baris, no-FK di database, transaksi ACID atomik | [architecture-patterns.md](references/architecture-patterns.md) |
+| **⚡ Stack & Resource** | Bun-first, Vue 3 Composition API, Tailwind v4, Drizzle ORM (hemat RAM VPS $4/bln) | [stack-tooling.md](references/stack-tooling.md) |
+| **🛡️ Zero-Trust Security** | Anti-SSRF safe outbound fetcher, anti-IDOR tenant guard, raw-body HMAC webhook signature | [security-compliance.md](references/security-compliance.md) |
+| **🚀 Lighthouse & i18n** | Target skor 100/100, Core Web Vitals ketat (LCP < 1.2s, CLS 0), kamus modular per domain | [performance-lighthouse-seo.md](references/performance-lighthouse-seo.md), [modular-i18n.md](references/modular-i18n.md) |
 
 ---
 
-## 🚀 Cara Instalasi & Penggunaan
+## 🚀 Cara Instalasi
 
 ### 1. Kloning Repositori
 ```bash
 git clone https://github.com/rasyiqi-code/My-Skill.git
 cd My-Skill
+chmod +x ./scripts/*.sh
 ```
 
-### 2. Pasang Secara Global (Untuk Semua Proyek)
-Jalankan skrip berikut untuk menautkan repositori ini ke konfigurasi global Antigravity:
+### 2. Opsi A: Instalasi Global (Untuk Semua Agent di Komputer Anda)
+Jalankan skrip ini untuk menautkan skill ke **semua AI agent** yang didukung secara otomatis:
 ```bash
-chmod +x ./scripts/*.sh
 ./scripts/install-globally.sh
 ```
-*Skill akan langsung terdaftar di `~/.gemini/config/skills/my-skill` dan otomatis terdeteksi di setiap workspace.*
+*Skrip ini akan menautkan skill ke `~/.agents/skills/my-skill`, `~/.gemini/config/skills/my-skill`, `~/.claude/skills/my-skill`, `~/.cursor/skills/my-skill`, dan `~/.codex/skills/my-skill`.*
 
-### 3. Pasang Khusus ke Satu Proyek Tertentu
-Jika ingin menautkan skill ke dalam workspace proyek tertentu saja:
+### 3. Opsi B: Pasang ke Proyek Workspace Tertentu
+Untuk mengaktifkan skill pada suatu repositori proyek:
 ```bash
 ./scripts/install-to-workspace.sh /path/ke/proyek-anda
 ```
+*Skrip ini akan membuat direktori standar `.agents/skills/my-skill` dan symlink kompatibilitas untuk Claude, Cursor, Gemini, dan Codex.*
 
-### 4. Menjalankan Melalui Agen AI
-Pada percakapan dengan Antigravity di proyek Anda, berikan instruksi:
-- *"Gunakan standar my-skill untuk membangun modul ini."*
-- *"Refactor halaman ini mengikuti aturan UI/UX dan arsitektur pada my-skill."*
+---
 
-Agen akan secara otomatis membaca `SKILL.md` serta dokumen pendukung di `references/` untuk menerapkan standar kode yang sesuai.
+## 🤖 Cara Menggunakan di Berbagai AI Agent
+
+Setelah terpasang, panggil atau picu skill pada AI agent pilihan Anda:
+
+### Google Antigravity & Gemini CLI
+```text
+"Gunakan standar my-skill untuk merancang arsitektur modul autentikasi dan billing ini."
+```
+
+### Claude Code (Anthropic)
+```text
+"Follow the my-skill blueprint to implement the product catalog and apply anti-slop UI tokens."
+```
+
+### Cursor AI
+```text
+"Gunakan panduan my-skill untuk refactor schema database dan tambahkan SingleFlight SWR cache."
+```
+
+### OpenAI Codex / Copilot / Cline / Roo Code
+```text
+"Apply the rules in .agents/skills/my-skill to build this feature."
+```
+
+Setiap agen yang kompatibel akan membaca metadata `SKILL.md`, mengaktifkan instruksi rekayasa, dan merujuk ke file `references/` serta `assets/` sesuai kebutuhan tugas secara efisien.
+
+---
+
+## 📄 Lisensi
+
+Dilisensikan di bawah [MIT License](LICENSE). Standar spesifikasi berbasis [agentskills.io](https://agentskills.io).

@@ -100,4 +100,4 @@ The CLI tool:
 2. Inserts the nested key into both `locales/id/` and `locales/en/`.
 3. Recompiles all master files in under 15ms.
 
-See [split-locales.ts](../templates/split-locales.ts) and [i18n-add.ts](../templates/i18n-add.ts) for implementation details.
+See [split-locales.ts](../assets/split-locales.ts) and [i18n-add.ts](../assets/i18n-add.ts) for implementation details.

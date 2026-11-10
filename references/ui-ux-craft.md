@@ -36,7 +36,7 @@ AI coding agents sering kali menghasilkan antarmuka yang technically rapi tetapi
 - **Ciri AI Slop**: Tampilan secara teknis rapi dan simetris, tetapi terasa steril, kaku, dan seperti dibuat oleh robot tanpa sentuhan desainer manusia. Tidak ada elemen kejutan, tanpa mikro-interaksi bermakna, dan tanpa rasa sentuhan (*tactile sense*).
 - **Standar Rasyiqi**:
   - Berikan jiwa (*soul*) melalui **Tactile Micro-Interactions**: Tombol yang terasa membal saat ditekan (`hover:scale-[1.02] active:scale-[0.98] transition-all duration-150`), border halus yang menyala saat input difokuskan, dan transisi antar-state yang halus.
-  - Detail visual fungsional: Tag status yang jelas, avatar bertumpuk yang rapi, dan sistem ikon vektor buatan tangan via [`<AppIcon>`](../templates/AppIcon.vue) alih-alih emoji mentah.
+  - Detail visual fungsional: Tag status yang jelas, avatar bertumpuk yang rapi, dan sistem ikon vektor buatan tangan via [`<AppIcon>`](../assets/AppIcon.vue) alih-alih emoji mentah.
 
 ### ❌ 5. Logika UX yang Dangkal (Hanya Happy Path, Mengabaikan Edge Case Nyata)
 - **Ciri AI Slop**: AI hanya merancang berdasarkan data rata-rata ideal (*happy path*). Ketika dijalankan di dunia nyata, desainnya hancur saat menemui kondisi tak terduga (*edge cases*).
@@ -59,7 +59,7 @@ AI coding agents sering kali menghasilkan antarmuka yang technically rapi tetapi
 - **Yang Tidak Disukai**: Menaruh emoji mentah di dalam judul, label tombol, badge status, atau navigasi:
   - ❌ `💡 Tips Panduan`, `🚀 Dashboard`, `🔥 Promo Spesial`, `👑 VIP Member`
 - **Kenapa Ditolak**: Emoji mentah dirender secara acak dan sangat berbeda oleh sistem operasi (Windows vs Apple vs Android vs Linux), terlihat tidak konsisten, kekanak-kanakan, dan merusak keselarasan tipografi profesional.
-- **Standar yang Disukai**: Gunakan komponen vektor SVG seragam [`<AppIcon>`](../templates/AppIcon.vue) dengan warna semantik yang terukur.
+- **Standar yang Disukai**: Gunakan komponen vektor SVG seragam [`<AppIcon>`](../assets/AppIcon.vue) dengan warna semantik yang terukur.
 
 ### ❌ 7. Kontras Rendah & Teks "Mati" (Accessibility Sins)
 - **Yang Tidak Disukai**:

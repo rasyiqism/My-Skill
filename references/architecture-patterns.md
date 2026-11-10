@@ -119,7 +119,7 @@ export async function getStoreAnalytics(storeId: string) {
 }
 ```
 
-See [inMemoryCache.ts](../templates/inMemoryCache.ts) for the reference implementation.
+See [inMemoryCache.ts](../assets/inMemoryCache.ts) for the reference implementation.
 
 ---
 
