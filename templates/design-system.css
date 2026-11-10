@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  /* Radius Tokens - Maximum 16px for cards, 8px for buttons/inputs */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* Font Families */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+:root {
+  /* Surfaces & Canvas */
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f1f5f9;
+
+  /* Borders */
+  --color-border-subtle: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  /* Typography Colors */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+
+  /* Semantic Accents */
+  --color-brand: #0f172a;
+  --color-brand-contrast: #ffffff;
+  
+  --color-success: #10b981;
+  --color-success-bg: #ecfdf5;
+  --color-success-border: #a7f3d0;
+
+  --color-warning: #f59e0b;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fde68a;
+
+  --color-danger: #ef4444;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #fecaca;
+
+  --color-studio: #6366f1;
+  --color-studio-bg: #eef2ff;
+  --color-studio-border: #c7d2fe;
+
+  /* Spacing Scale (4px / 8px Grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* Elevation Shadows */
+  --shadow-2xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-xs: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+
+  /* Layout Variables */
+  --header-height: 60px;
+  --mobile-nav-height: 56px;
+  --container-max-width: 1240px;
+}
+
+/* Dark Mode Tokens */
+.dark, [data-theme="dark"] {
+  --color-canvas: #09090b;
+  --color-surface: #18181b;
+  --color-surface-raised: #27272a;
+
+  --color-border-subtle: #27272a;
+  --color-border-strong: #3f3f46;
+
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+
+  --color-brand: #ffffff;
+  --color-brand-contrast: #09090b;
+
+  --color-success: #34d399;
+  --color-success-bg: rgba(6, 78, 59, 0.3);
+  --color-success-border: rgba(5, 150, 105, 0.4);
+
+  --color-warning: #fbbf24;
+  --color-warning-bg: rgba(120, 53, 15, 0.3);
+  --color-warning-border: rgba(217, 119, 6, 0.4);
+
+  --color-danger: #f87171;
+  --color-danger-bg: rgba(127, 29, 29, 0.3);
+  --color-danger-border: rgba(220, 38, 38, 0.4);
+
+  --color-studio: #818cf8;
+  --color-studio-bg: rgba(49, 46, 129, 0.3);
+  --color-studio-border: rgba(79, 70, 229, 0.4);
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile Bottom Navigation Clearance */
+.has-bottom-nav {
+  padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 16px));
+}
+
+/* Custom Slim Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-subtle) transparent;
+}
